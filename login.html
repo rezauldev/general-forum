@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1>You are now logged in!</h1>
+<style>
+    div {
+        margin: 3px;
+    }
 
+    label {
+        display: inline-block;;
+        width: 100px;
+    }
+</style>
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Home</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="signup">Signup</a></li>
+        </ul>
+    </div>
+</nav>
+<form>
+    <div>
+        <label>Email:</label>
+        <input type='email' autocomplete='username' id='email'/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type='password' autocomplete='new-password' />
+    </div>
+    <button type="submit"><a href="logout">Login</a></button>
+</form>
+<h1>You are in login page!</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
