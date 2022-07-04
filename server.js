@@ -24,7 +24,6 @@ const PORT = process.env.PORT || 8000;
             app.post('/users', (request, response) => {
                 usersCollection.insertOne(request.body)
                     .then(result => {
-                        console.log(result)
                         response.redirect('/')
                     })
                     .catch(error => console.error(error))
