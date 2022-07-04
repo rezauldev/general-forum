@@ -31,20 +31,20 @@
                         <p class="text-white-50 mb-5">Please enter your details!</p>
                         <form action="/users" method="POST">
                             <div class="form-outline form-white mb-4">
-                                <input type="text" id="typeNameX" class="form-control form-control-lg" />
+                                <input type="text" id="typeNameX" class="form-control form-control-lg" name="name"/>
                                 <label class="form-label" for="typeNameX">Name</label>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                <input type="email" id="typeEmailX" class="form-control form-control-lg" name="email"/>
                                 <label class="form-label" for="typeEmailX">Email</label>
                             </div>
 
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password"/>
                                 <label class="form-label" for="typePasswordX">Password</label>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typeConfirmPasswordX" class="form-control form-control-lg" />
+                                <input type="password" id="typeConfirmPasswordX" class="form-control form-control-lg" name="confirm password"/>
                                 <label class="form-label" for="typePasswordX">Confirm Password</label>
                             </div>
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign up</button>
