@@ -1,10 +1,23 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
+const MongoClient = require('mongodb').MongoClient
+const dotenv = require('dotenv').config();
+const url = process.env.MONGOLAB_URL;
 
+MongoClient.connect(url, (err, client) => {
+    if (err) return connect.error(err)
+    console.log('Connecting to MongoDB')
+})
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html')
+})
+
+app.post('/users', (request, response) => {
+    console.log(request.body)
 })
 
 app.get('/signup', (request, response) => {
