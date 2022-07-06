@@ -1,11 +1,20 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+const expressLayouts = require('express-ejs-layouts')
 const MongoClient = require('mongodb').MongoClient
 const dotenv = require('dotenv').config();
 const url = process.env.MONGOLAB_URL;
 
 const PORT = process.env.PORT || 8000;
+
+// EJS...
+app.use(expressLayouts)
+app.set('view engine', 'ejs');
+
+// Routes...
+app.use('/', require('./routes/index'))
+app.use('/users', require('./routes/users'))
 
     MongoClient.connect(url)
         .then(client => {
