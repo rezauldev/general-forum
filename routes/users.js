@@ -1,13 +1,19 @@
 const express = require('express')
-const route = express.Router()
+const router = express.Router()
 
 // Login page...
-route.get('/login', (request, response) => response.render('login'))
+router.get('/login', (request, response) => response.render('login'))
 
 // Signup page...
-route.get('/signup', (request, response) => response.render('signup'))
+router.get('/signup', (request, response) => response.render('signup'))
+
+// Signup Handle...
+router.post('/signup', (request, response) => {
+    console.log(request.body)
+    response.send('hello me!')
+})
 
 // Dashboard page...
-route.get('/dashboard', (request, response) => response.render('dashboard'))
+router.get('/dashboard', (request, response) => response.render('dashboard'))
 
-module.exports = route;
+module.exports = router;

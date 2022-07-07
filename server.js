@@ -1,9 +1,20 @@
 const express = require('express')
-const app = express()
 const expressLayouts = require('express-ejs-layouts')
-const MongoClient = require('mongodb').MongoClient
-const dotenv = require('dotenv').config();
-const url = process.env.MONGOLAB_URL;
+const mongoose = require('mongoose')
+
+
+const app = express()
+
+// DB config...
+const db = require('./config/keys').MongoURI;
+
+// Connect to Mongo...
+mongoose.connect(db)
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err))
+
+// const dotenv = require('dotenv').config();
+// const url = process.env.MONGOLAB_URL;
 
 const PORT = process.env.PORT || 8000;
 
@@ -12,7 +23,7 @@ app.use(expressLayouts)
 app.set('view engine', 'ejs');
 
 // Bodyparser...
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 // Routes...
 app.use('/', require('./routes/index'))
