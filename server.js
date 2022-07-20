@@ -11,14 +11,13 @@ app.use(express.static('public'))
 
 // DB config...
 const db = require('./config/keys').MongoURI;
+// const dotenv = require('dotenv').config();
+// const db = process.env.MONGODB_URL;
 
 // Connect to MongoDB...
-mongoose.connect(db)
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err))
-
-// const dotenv = require('dotenv').config();
-// const url = process.env.MONGOLAB_URL;
 
 const PORT = process.env.PORT || 8000;
 
