@@ -6,33 +6,35 @@
                     <div class="mb-md-5 mt-md-4 pb-5">
                         <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
                         <p class="text-white-50 mb-5">Please enter your details!</p>
+                        <%- include ('./partials/messages') %>
                         <form action="/users/signup" method="POST">
                             <div class="form-outline form-white mb-4">
-                                <input type="name" id="typeNameX" class="form-control form-control-lg" name="name"/>
+                                <input type="name" id="typeNameX" class="form-control form-control-lg" name="name" value="<%= typeof name != 'undefined' ? name : '' %>"/>
                                 <label class="form-label" for="typeNameX">Name</label>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="email" id="typeEmailX" class="form-control form-control-lg" name="email"/>
+                                <input type="email" id="typeEmailX" class="form-control form-control-lg" name="email" value="<%= typeof email != 'undefined' ? email : '' %>"/>
                                 <label class="form-label" for="typeEmailX">Email</label>
                             </div>
 
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password"/>
+                                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password" value="<%= typeof password != 'undefined' ? password : '' %>"/>
                                 <label class="form-label" for="typePasswordX">Password</label>
                             </div>
                             <div class="form-outline form-white mb-4">
-                                <input type="password" id="typeConfirmPasswordX" class="form-control form-control-lg" name="confirmPassword"/>
+                                <input type="password" id="typeConfirmPasswordX" class="form-control form-control-lg" name="confirmPassword" value="<%= typeof confirmPassword != 'undefined' ? confirmPassword : '' %>"/>
                                 <label class="form-label" for="typePasswordX">Confirm Password</label>
                             </div>
                             <button class="btn btn-outline-light btn-lg px-5" type="submit">Signup</button>
                         </form>
                     </div>
                     <div>
-                        <p class="mb-0">Do have an account? <a href="login" class="text-white-50 fw-bold">Login</a>
-                        </p>
+                        <p class="mb-0">Do have an account? <a href="/users/login" class="text-white-50 fw-bold">Login</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!--<a href="login" class="text-decoration-none form-button">Signup</a>-->

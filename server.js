@@ -5,10 +5,14 @@ const mongoose = require('mongoose')
 
 const app = express()
 
+// Static file handler...
+app.use(express.static('public'))
+
+
 // DB config...
 const db = require('./config/keys').MongoURI;
 
-// Connect to Mongo...
+// Connect to MongoDB...
 mongoose.connect(db)
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err))
@@ -23,7 +27,7 @@ app.use(expressLayouts)
 app.set('view engine', 'ejs');
 
 // Bodyparser...
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Routes...
 app.use('/', require('./routes/index'))
