@@ -10,7 +10,7 @@ app.use(express.static('public'))
 
 
 // DB config...
-const db = require('./config/keys').MongoURI;
+const db = require('./config/keys').mongoURI;
 // const dotenv = require('dotenv').config();
 // const db = process.env.MONGODB_URL;
 
