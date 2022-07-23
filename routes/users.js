@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
 
 // User model...
 const User = require('../models/User')
@@ -13,6 +14,7 @@ router.get('/signup', (request, response) => response.render('signup'))
 
 // Signup Handle...
 router.post('/signup', (request, response) => {
+    // console.log(request)
     const { name, email, password, confirmPassword } = request.body;
     let errors = []
 
@@ -40,7 +42,6 @@ router.post('/signup', (request, response) => {
         })
     }else {
         // validation passed...
-        response.redirect('/users/login')
         User.findOne({ email: email })
             .then(user => {
                 if(user){
@@ -67,7 +68,9 @@ router.post('/signup', (request, response) => {
                             console.log(newUser)
                             newUser.save()
                                 .then(user => {
+                                    request.flash('success_msg', 'Yor are now registered and can log in')
                                     response.redirect('/users/login');
+                                    // console.log(response)
                                 })
                                 .catch(err => console.log(err));
                         });
@@ -78,7 +81,23 @@ router.post('/signup', (request, response) => {
     // console.log(request.body)
 })
 
-// Dashboard page...
-router.get('/dashboard', (request, response) => response.render('dashboard'))
+// Login handle...
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/users/login',
+        failureFlash: true
+    })(req, res, next)
+})
+
+// Logout handle...
+router.get('/logout', (req, res) => {
+    req.logout(() => {
+        req.flash('success_msg', 'You are logged out');
+        res.redirect('/users/login')
+    });
+
+})
+
 
 module.exports = router;
