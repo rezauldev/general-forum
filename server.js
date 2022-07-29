@@ -17,12 +17,14 @@ require('./config/passport')(passport)
 // DB config...
 const db = require('./config/keys').mongoURI;
 // const dotenv = require('dotenv').config();
-// const db = process.env.MONGODB_URL;
+// const db = process.env.mongoURI;
 
 // Connect to MongoDB...
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err))
+
+
 
 const PORT = process.env.PORT || 8000;
 
