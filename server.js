@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 8000;
 app.use(expressLayouts)
 app.set('view engine', 'ejs');
 
-// Bodyparser...
+// Bodyer...
 app.use(express.urlencoded({ extended: true }))
 
 // Express session...
@@ -50,10 +50,13 @@ app.use(passport.session());
 app.use(flash())
 
 // Custom middleware(Global variables)...
-app.use((request, response, next) => {
-    response.locals.success_msg = request.flash('success_msg')
-    response.locals.error_msg = request.flash('error_msg')
-    response.locals.error = request.flash('error')
+app.use((req, res, next) => {
+    const messages = req.session.messages;
+    req.session.messages = []
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = (messages && messages?.[0]) || req.flash('error_msg')
+    res.locals.error = req.flash('error')
+    res.locals.user = req.user
     next()
 })
 

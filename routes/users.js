@@ -86,7 +86,7 @@ router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/dashboard',
         failureRedirect: '/users/login',
-        failureFlash: true
+        failureMessage: true
     })(req, res, next);
 });
 
