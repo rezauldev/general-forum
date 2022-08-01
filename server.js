@@ -57,6 +57,7 @@ app.use((req, res, next) => {
     res.locals.error_msg = (messages && messages?.[0]) || req.flash('error_msg')
     res.locals.error = req.flash('error')
     res.locals.user = req.user
+    // console.log(res.locals.user)
     next()
 })
 
