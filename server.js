@@ -51,11 +51,19 @@ app.use(flash())
 
 // Custom middleware(Global variables)...
 app.use((request, response, next) => {
-    response.locals.success_msg = request.flash('success_msg')
-    response.locals.error_msg = request.flash('error_msg')
-    response.locals.error = request.flash('error')
-    next()
-})
+  const messages = request.session.messages;
+  request.session.messages = [];
+
+  response.locals.success_msg = request.flash('success_msg')
+  response.locals.error_msg = (messages && messages?.[0]) || request.flash('error_msg');
+  response.locals.error = request.flash('error')
+
+  response.locals.user = request.user;
+
+  next()
+});
+
+
 
 // Routes...
 app.use('/', require('./routes/index'))
@@ -64,4 +72,3 @@ app.use('/users', require('./routes/users'))
 app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT}! Better Go Catch it!`)
 })
-
