@@ -4,3 +4,26 @@
 .form-button:hover{
     color: black
 }
+
+.q-link{
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.post-tag{
+    font-size: 12px;
+    text-decoration: none;
+    padding-right: 12px;
+}
+
+.topic-link{
+    margin-left: 243px;
+    margin-right: 243px;
+
+}
+
+.topic-tag{
+    margin-left: 231px;
+    margin-right: 231px;
+
+}
