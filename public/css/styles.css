@@ -1,3 +1,6 @@
+body{
+    background-color: aqua;
+}
 .form-button{
     color: white
 }
@@ -8,6 +11,11 @@
 .q-link{
     font-size: 17px;
     text-decoration: none;
+    color: #81c5f8;
+    padding-left: 11px
+}
+.q-link:hover{
+    color: #33a7ff;
 }
 
 .post-tag{
@@ -17,13 +25,5 @@
 }
 
 .topic-link{
-    margin-left: 243px;
-    margin-right: 243px;
-
-}
-
-.topic-tag{
-    margin-left: 231px;
-    margin-right: 231px;
-
+    width: 70%;
 }
