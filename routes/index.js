@@ -11,7 +11,7 @@ route.get('/dashboard', ensureAuthenticated, (req, res) => res.render('dashboard
 //     res.render('navbar', )
 // })
 
-route.get('/ask-question', (req, res) => res.render('ask-question'))
+route.get('/ask-question', ensureAuthenticated, (req, res) => res.render('ask-question'))
 
 
 module.exports = route;
