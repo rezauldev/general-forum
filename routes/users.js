@@ -16,11 +16,20 @@ router.get('/signup', (request, response) => response.render('signup'))
 router.post('/signup', (request, response) => {
     // console.log(request)
     const { name, email, password, confirmPassword } = request.body;
+    const validateEmail = (email) => {
+        const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        return re.test(email);
+    };
     let errors = []
 
     // Check required fields...
     if(!name || !email || !password || !confirmPassword){
         errors.push({ msg:'Please fill in all fields' })
+    }
+
+    if(email.match !== validateEmail()){
+        errors.push({ msg:'Please fill a valid email address' })
+
     }
 
     // Check password match...
