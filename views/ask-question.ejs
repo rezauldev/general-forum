@@ -1,22 +1,20 @@
 <div class="container">
-    <form action="#" name="new-post" method="POST">
+    <form action="/ask-question" method="POST">
         <h3 class="flex d-flex justify-content-center align-items-center my-4">Ask a question</h3>
         <div>
             <div>
-                <label for="bbp_topic_title">Topic Title (Maximum Length: 80):</label>
-                <input type="text" class="form-control" size="40" name="bbp_topic_title" maxlength="80">
+                <label for="title">Topic Title:</label>
+                <input type="text" class="form-control" size="40" name="title">
             </div>
             <div class="mt-4 mb-4">
-                <label for="bbp_topic_title">Topic Description:</label>
-                <textarea class="form-control" rows="15"></textarea>
+                <label for="description">Topic Description:</label>
+                <textarea class="form-control" name="description" rows="15"></textarea>
             </div>
             <div class="mb-4">
-                <label for="bbp_topic_tags">Topic Tags:</label><br>
-                <input type="text" class="form-control" size="40" name="bbp_topic_tags">
+                <label for="tags">Topic Tags:</label><br>
+                <input type="text" class="form-control" size="40" name="tags">
             </div>
-            <div>
-                <button type="submit" name="bbp_topic_submit" class="btn btn-primary btn-outline-light">Submit</button>
-            </div>
+            <button type="submit" class="btn btn-primary btn-outline-light">Submit</button>
         </div>
     </form>
 </div>

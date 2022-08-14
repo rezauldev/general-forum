@@ -7,15 +7,15 @@ const passport = require('passport')
 const User = require('../models/User')
 
 // Login page...
-router.get('/login', (request, response) => response.render('login'))
+router.get('/login', (req, res) => res.render('login'))
 
 // Signup page...
-router.get('/signup', (request, response) => response.render('signup'))
+router.get('/signup', (req, res) => res.render('signup'))
 
 // Signup Handle...
-router.post('/signup', (request, response) => {
+router.post('/signup', (req, res) => {
     // console.log(request)
-    const { name, email, password, confirmPassword } = request.body;
+    const { name, email, password, confirmPassword } = req.body;
     let errors = []
 
     // Check required fields...
@@ -41,7 +41,7 @@ router.post('/signup', (request, response) => {
     }
 
     if(errors.length > 0) {
-        response.render('signup', {
+        res.render('signup', {
             errors,
             name,
             email,
@@ -55,7 +55,7 @@ router.post('/signup', (request, response) => {
                 if(user){
                 // User exists...
                     errors.push({ msg:'This email is already registered' })
-                    response.render('signup', {
+                    res.render('signup', {
                         errors,
                         name,
                         email,
@@ -73,11 +73,11 @@ router.post('/signup', (request, response) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
                             if (err) throw err;
                             newUser.password = hash;
-                            console.log(newUser)
+                            console.log(newUser.email)
                             newUser.save()
                                 .then(user => {
-                                    request.flash('success_msg', 'Yor are now registered and can log in')
-                                    response.redirect('/users/login');
+                                    req.flash('success_msg', 'Yor are now registered and can log in')
+                                    res.redirect('/users/login');
                                     // console.log(response)
                                 })
                                 .catch(err => console.log(err));
