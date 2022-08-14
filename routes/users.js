@@ -16,10 +16,6 @@ router.get('/signup', (request, response) => response.render('signup'))
 router.post('/signup', (request, response) => {
     // console.log(request)
     const { name, email, password, confirmPassword } = request.body;
-    const validateEmail = (email) => {
-        const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        return re.test(email);
-    };
     let errors = []
 
     // Check required fields...
@@ -27,20 +23,23 @@ router.post('/signup', (request, response) => {
         errors.push({ msg:'Please fill in all fields' })
     }
 
-    if(email.match !== validateEmail()){
+    const validateEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if(!(email.match(validateEmail))){
         errors.push({ msg:'Please fill a valid email address' })
-
     }
+
+    const validatePassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#,".()+_/:;<=>?{}~$%^&*])(?=.{7})/
+    if(!(password.match(validatePassword))){
+        errors.push({ msg:'Password should be one upper letter, one lower letter, one special character and at lest 7 characters,' })
+    }
+
+
 
     // Check password match...
     if(password !== confirmPassword){
         errors.push({ msg:'Password do not match' })
     }
 
-    // Check password length...
-    if(password.length < 6){
-        errors.push({ msg:'Password should be at least 6 characters' })
-    }
     if(errors.length > 0) {
         response.render('signup', {
             errors,

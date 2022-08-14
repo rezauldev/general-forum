@@ -1,92 +1,22 @@
-<!--<form>-->
-<!--    <div class="form-group">-->
-<!--        <label For="exampleInputEmail1" class="form-label mt-4">Title</label>-->
-<!--        <small id="emailHelp" class="form-text text-muted">Be specific and imagine you’re asking a question to another person.</small>-->
-<!--        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label For="exampleTextarea" class="form-label mt-4">Body</label>-->
-<!--        <small id="emailHelp" class="form-text text-muted">Include all the information someone would need to answer your question.</small>-->
-<!--        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>-->
-<!--    </div>-->
-<!--    <button type="submit" class="btn btn-primary">Submit</button>-->
-<!--</form>-->
-
-<!--<div class="container py-5 h-100">-->
-<!--    <div class="row d-flex justify-content-center align-items-center h-100">-->
-<!--        <div class="col-12 col-md-8 col-lg-6 col-xl-10">-->
-<!--            <div class="card bg-primary text-white" style="border-radius: 1rem;">-->
-<!--                <div class="card-body p-5 text-center">-->
-<!--                    <div class="mb-md-10 mt-md-4 pb-5">-->
-<!--                        <form action="/users/login" method="POST">-->
-<!--                            <div class="form-group">-->
-<!--                                <label For="exampleInputEmail1" class="form-label mt-4">Title</label>-->
-<!--                                <div>-->
-<!--                                    <small id="emailHelp" class="form-text text-muted">Be specific and imagine you’re asking a question to another person.</small>-->
-<!--                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
-<!--                                </div>-->
-
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label For="exampleTextarea" class="form-label mt-4">Body</label>-->
-<!--                                <div>-->
-<!--                                    <small id="emailHelp" class="form-text text-muted">Include all the information someone would need to answer your question.</small>-->
-<!--                                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <button type="submit" class="btn btn-secondary">Submit</button>-->
-<!--                        </form>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
-<div class="sec_pad page_wrapper">
-    <div class="container">
-        <div id="bbpress-forums" class="bbpress-wrapper">
-            <div id="new-topic-0" class="bbp-topic-form">
-                <form id="new-post" name="new-post" method="post">
-                    <fieldset class="bbp-form">
-                        <h3 class="flex d-flex justify-content-center align-items-center my-4">Ask a question</h3>
-                        <div class="row aq-form-wrapper">
-                            <div class="form-item col-md-12">
-                                <label for="bbp_topic_title">Topic Title (Maximum Length: 80):</label>
-                                <input type="text" class="form-control" id="bbp_topic_title" value="" size="40" name="bbp_topic_title" maxlength="80">
-                            </div>
-                            <div class="mt-4 mb-4">
-                                <label for="bbp_topic_title">Topic Description:</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="15"></textarea>
-                            </div>
-                            <div class="form-item col-md-12">
-                                <label for="bbp_topic_tags">Topic Tags:</label><br>
-                                <input type="text" class="form-control" value="" size="40" name="bbp_topic_tags" id="bbp_topic_tags">
-                            </div>
-                            <div class="form-item col-md-4 my-4">
-                                <label for="bbp_forum_id">Forum Topic:</label><br>
-                                <select name="bbp_forum_id" id="bbp_forum_id" class="bbp_dropdown">
-                                    <option value="" class="level-0">— No forum —</option>
-                                    <option class="level-0" value="4996">Technology</option>
-                                    <option class="level-0" value="4974">Food</option>
-                                    <option class="level-0" value="5080">City</option>
-                                    <option class="level-0" value="4994">Product</option>
-                                </select>
-                            </div>
-                            <div class="form-item col-md-12 bbp-submit-wrapper">
-                                <div class="aq-notify-check">
-                                    <input class="checkbox-tik" name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox" value="bbp_subscribe">
-                                    <label for="bbp_topic_subscription">Notify me of follow-up replies via email</label>
-                                </div>
-                                <button type="submit" id="bbp_topic_submit" name="bbp_topic_submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </div>
-                        <input type="hidden" name="action" id="bbp_post_action" value="bbp-new-topic">
-                        <input type="hidden" id="_wpnonce" name="_wpnonce" value="e67c524243"><input type="hidden" name="_wp_http_referer" value="/docly/ask-question/">
-                    </fieldset>
-                </form>
+<div class="container">
+    <form action="#" name="new-post" method="POST">
+        <h3 class="flex d-flex justify-content-center align-items-center my-4">Ask a question</h3>
+        <div>
+            <div>
+                <label for="bbp_topic_title">Topic Title (Maximum Length: 80):</label>
+                <input type="text" class="form-control" size="40" name="bbp_topic_title" maxlength="80">
+            </div>
+            <div class="mt-4 mb-4">
+                <label for="bbp_topic_title">Topic Description:</label>
+                <textarea class="form-control" rows="15"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="bbp_topic_tags">Topic Tags:</label><br>
+                <input type="text" class="form-control" size="40" name="bbp_topic_tags">
+            </div>
+            <div>
+                <button type="submit" name="bbp_topic_submit" class="btn btn-primary btn-outline-light">Submit</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>

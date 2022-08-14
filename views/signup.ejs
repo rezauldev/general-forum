@@ -9,7 +9,7 @@
                         <%- include ('./partials/messages') %>
                         <form action="/users/signup" method="POST">
                             <div class="form-outline form-white mb-4">
-                                <input type="name" id="typeNameX" class="form-control form-control-lg" name="name" value="<%= typeof name != 'undefined' ? name : '' %>"/>
+                                <input type="name" class="form-control form-control-lg" name="name" value="<%= typeof name != 'undefined' ? name : '' %>"/>
                                 <label class="form-label" for="typeNameX">Name</label>
                             </div>
                             <div class="form-outline form-white mb-4">
@@ -36,5 +36,3 @@
         </div>
     </div>
 </div>
-
-<!--<a href="login" class="text-decoration-none form-button">Signup</a>-->
