@@ -28,9 +28,10 @@ route.post('/ask-question', (req, res) => {
 route.get('/dashboard', (req, res) => res.render('dashboard'))
 
 // Ask question page...
-route.get('/ask-question', (req, res) => res.render('ask-question'))
+route.get('/ask-question', ensureAuthenticated, (req, res) => res.render('ask-question'))
 
 // Questions page...
 route.get('/questions', (req, res) => res.render('questions'))
 
 module.exports = route;
+
