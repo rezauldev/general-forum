@@ -6,7 +6,12 @@ const { ensureAuthenticated } = require('../config/auth')
 const Question = require('../models/Question')
 
 // Welcome page...
-route.get('/', (req, res) => res.render('index'))
+route.get('/', async (req, res) => {
+  const questions = await Question.find();
+  res.render('index', {
+    questions
+  });
+});
 
 // ask question page submit handle...
 route.post('/ask-question', (req, res) => {
@@ -34,4 +39,3 @@ route.get('/ask-question', ensureAuthenticated, (req, res) => res.render('ask-qu
 route.get('/questions', (req, res) => res.render('questions'))
 
 module.exports = route;
-
