@@ -13,16 +13,18 @@
 </section>
 <section>
     <div class="container">
-        <div class="d-flex justify-content-start align-items-center p-3 border-bottom topic-container">
+        <% for (const question of questions) { %>
+        <div class="d-flex justify-content-start align-items-center p-3 border bg-light topic-container">
             <div></div>
             <div class="topic-link">
                 <div class="#">
-                    <h3><a href="/questions" class="q-link row d-flex justify-content-center align-items-center"><%= question.title %></a></h3>
+                    <h3><a href="/questions/<%= question._id %>" class="q-link row d-flex justify-content-center align-items-center"><%= question.title %></a></h3>
                 </div>
                 <div class="topic-tag">
                     <a href="#" class="post-tag" title="#" rel="tag"><%= question.tags %></a>
                 </div>
             </div>
         </div>
+        <% } %>
     </div>
 </section>

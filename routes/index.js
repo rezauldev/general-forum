@@ -1,12 +1,19 @@
 const express = require('express')
 const route = express.Router()
+const db = require('../config/keys').mongoURI;
 const { ensureAuthenticated } = require('../config/auth')
 
 // Load User model...
 const Question = require('../models/Question')
 
 // Welcome page...
-route.get('/', (req, res) => res.render('index'))
+route.get('/', async (req, res) => {
+    const questions = await Question.find()
+        res.render('index', {
+            questions
+        })
+
+})
 
 // ask question page submit handle...
 route.post('/ask-question', (req, res) => {
@@ -18,7 +25,7 @@ route.post('/ask-question', (req, res) => {
     })
     askQuestion.save()
         .then(item => {
-            res.render('index');
+            res.redirect('/');
         })
         .catch(err => console.log(err));
     console.log(req.body);
@@ -31,7 +38,13 @@ route.get('/dashboard', (req, res) => res.render('dashboard'))
 route.get('/ask-question', ensureAuthenticated, (req, res) => res.render('ask-question'))
 
 // Questions page...
-route.get('/questions', (req, res) => res.render('questions'))
+route.get('/questions/:id', async (req, res) => {
+    const questions = await Question.findById(req.params.id)
+    res.render('questions', {
+        questions
+    })
+    // res.render('questions')
+})
 
 module.exports = route;
 
