@@ -14,14 +14,20 @@
 <section>
     <div class="container">
         <% for (const question of questions) { %>
-        <div class="d-flex justify-content-start align-items-center p-3 border bg-light topic-container">
-            <div></div>
+        <div class="d-flex justify-content-start align-items-center p-3 border topic-container" style="background-color: #FFFFFF; border-radius: 5px">
             <div class="topic-link">
-                <div class="#">
-                    <h3><a href="/questions/<%= question._id %>" class="q-link row d-flex justify-content-center align-items-center"><%= question.title %></a></h3>
+                <div class="mb-2">
+                    <h3><a href="/questions/<%= question._id %>" class="d-flex row justify-content-start align-items-center"><%= question.title %></a></h3>
                 </div>
                 <div class="topic-tag">
-                    <a href="#" class="post-tag" title="#" rel="tag"><%= question.tags %></a>
+                    <a href="#" class="p-2" title="#" rel="tag">#<%= question.tags %></a>
+                    <a href="#" class="p-2" title="#" rel="tag">#<%= question.tags %></a>
+                </div>
+                <div class="mt-2">
+                    <a href="#" class="text-dark text-decoration-none p-2 icon" style="margin-right: 10px;"><i class="fa-regular fa-comment" style="margin-right:10px"></i>add answer</a>
+                    <!--                    <i class="fa-solid fa-comment"></i>-->
+                    <a href="#" class="text-dark text-decoration-none p-2 icon"><i class="fa-regular fa-bookmark" style="margin-right:10px"></i>save</a>
+                    <!--                    <i class="fa-solid fa-bookmark"></i>-->
                 </div>
             </div>
         </div>

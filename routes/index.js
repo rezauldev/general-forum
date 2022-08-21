@@ -35,7 +35,7 @@ route.post('/ask-question', (req, res) => {
 route.get('/dashboard', (req, res) => res.render('dashboard'))
 
 // Ask question page...
-route.get('/ask-question', ensureAuthenticated, (req, res) => res.render('ask-question'))
+route.get('/ask-question', (req, res) => res.render('ask-question'))
 
 // Questions page...
 route.get('/questions/:id', async (req, res) => {
@@ -43,7 +43,12 @@ route.get('/questions/:id', async (req, res) => {
     res.render('questions', {
         questions
     })
-    // res.render('questions')
+    console.log(questions.title)
+})
+
+// post answer...
+route.get('/post-answer', async (req, res) => {
+    res.render('post-answer')
 })
 
 module.exports = route;
