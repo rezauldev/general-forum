@@ -52,3 +52,19 @@ if(password.length < 6){
     <input class="checkbox-tik" name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox" value="bbp_subscribe">
     <label for="bbp_topic_subscription">Notify me of follow-up replies via email</label>
 </div>
+
+###############################
+route.post('/ask-question', (req, res) => {
+const { title, description, tags } = req.body;
+const askQuestion = new Question({
+title,
+description,
+tags
+})
+askQuestion.save()
+.then(item => {
+res.redirect('/');
+})
+.catch(err => console.log(err));
+console.log(req.body);
+})

@@ -16,7 +16,7 @@ route.get('/', async (req, res) => {
 })
 
 // ask question page submit handle...
-route.post('/ask-question', (req, res) => {
+route.post('/ask-question', ensureAuthenticated, (req, res) => {
     const { title, description, tags } = req.body;
     const askQuestion = new Question({
         title,
@@ -35,7 +35,7 @@ route.post('/ask-question', (req, res) => {
 route.get('/dashboard', (req, res) => res.render('dashboard'))
 
 // Ask question page...
-route.get('/ask-question', ensureAuthenticated, (req, res) => res.render('ask-question'))
+route.get('/ask-question', ensureAuthenticated, (req, res) =>  res.render('ask-question'))
 
 // Questions page...
 route.get('/questions/:id', async (req, res) => {
@@ -47,8 +47,13 @@ route.get('/questions/:id', async (req, res) => {
 })
 
 // post answer...
-route.get('/post-answer', async (req, res) => {
-    res.render('post-answer')
+// we want save the answer to the collection of questions
+// we want add answer of array by push to collection of document of questions
+route.post('/questions/:id/post-answer', ensureAuthenticated, async (req, res) => {
+    const questions = await Question.findById(req.params.id)
+    questions.answer.push(req.body.answer)
+    await questions.save()
+    res.redirect(`/questions/${questions._id}`)
 })
 
 module.exports = route;

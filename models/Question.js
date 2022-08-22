@@ -11,6 +11,13 @@ const QuestionSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    answer: [
+        {
+            type: String,
+            required: true,
+            trim: true
+        }
+    ],
     tags: {
         type: [String],
         required: true,

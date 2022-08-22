@@ -8,10 +8,10 @@ const { ensureUserLoggedIn } = require('../config/auth')
 const User = require('../models/User')
 
 // Login page...
-router.get('/login', ensureUserLoggedIn, (req, res) => res.render('login'))
+router.get('/login', ensureUserLoggedIn,  (req, res) => res.render('login'))
 
 // Signup page...
-router.get('/signup', ensureUserLoggedIn, (req, res) => res.render('signup'))
+router.get('/signup', ensureUserLoggedIn,  (req, res) => res.render('signup'))
 
 // Signup Handle...
 router.post('/signup', (req, res) => {
