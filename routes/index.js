@@ -1,6 +1,5 @@
 const express = require('express')
 const route = express.Router()
-const db = require('../config/keys').mongoURI;
 const { ensureAuthenticated } = require('../config/auth')
 
 // Load User model...

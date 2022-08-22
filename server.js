@@ -16,9 +16,9 @@ app.use(express.static('public'))
 require('./config/passport')(passport)
 
 // DB config...
-const db = require('./config/keys').mongoURI;
-// const dotenv = require('dotenv').config();
-// const db = process.env.mongoURI;
+// const db = require('./config/keys').mongoURI;
+const dotenv = require('dotenv').config();
+const db = process.env.mongoURI;
 
 // Connect to MongoDB...
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
