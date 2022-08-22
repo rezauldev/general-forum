@@ -5,7 +5,7 @@
                 <h1>Welcome to general forum!</h1>
             </div>
             <div>
-                <a href="question/ask-question" class="btn btn-primary btn-outline-light">Ask Question</a>
+                <a href="ask-question" class="btn btn-primary btn-outline-light">Ask Question</a>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div class="d-flex justify-content-start align-items-center p-3 border topic-container" style="background-color: #FFFFFF; border-radius: 5px">
             <div class="topic-link">
                 <div class="mb-2">
-                    <h3><a href="/questions/<%= question._id %>" class="d-flex row justify-content-start align-items-center"><%= question.title %></a></h3>
+                    <h3><a href="questions/<%= question._id %>" class="d-flex row justify-content-start align-items-center"><%= question.title %></a></h3>
                 </div>
                 <div class="topic-tag">
                     <a href="#" class="p-2" title="#" rel="tag">#<%= question.tags %></a>

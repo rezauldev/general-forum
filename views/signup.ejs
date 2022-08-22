@@ -7,7 +7,7 @@
                         <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
                         <p class="text-white-50 mb-5">Please enter your details!</p>
                         <%- include ('./partials/messages') %>
-                        <form action="/users/usre/signup" method="POST">
+                        <form action="/users/signup" method="POST">
                             <div class="form-outline form-white mb-4">
                                 <input type="name" class="form-control form-control-lg" name="name" value="<%= typeof name != 'undefined' ? name : '' %>"/>
                                 <label class="form-label" for="typeNameX">Name</label>
@@ -29,7 +29,7 @@
                         </form>
                     </div>
                     <div>
-                        <p class="mb-0">Do have an account? <a href="/users/user/login" class="text-white-50 fw-bold">Login</a></p>
+                        <p class="mb-0">Do have an account? <a href="/users/login" class="text-white-50 fw-bold">Login</a></p>
                     </div>
                 </div>
             </div>
