@@ -43,7 +43,7 @@ route.get('/questions/:id', async (req, res) => {
     res.render('questions', {
         questions
     })
-    console.log(questions.title)
+    // console.log(questions.title)
 })
 
 // post answer...
