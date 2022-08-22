@@ -67,7 +67,7 @@ app.use((req, res, next) => {
 })
 
 // Routes...
-app.use('/', require('./routes/index'))
+app.use('/', require('./routes'))
 app.use('/users', require('./routes/users'))
 
 app.listen(PORT, () => {

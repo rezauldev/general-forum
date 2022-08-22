@@ -8,10 +8,10 @@ const { ensureUserLoggedIn } = require('../config/auth')
 const User = require('../models/User')
 
 // Login page...
-router.get('/login', (req, res) => res.render('login'))
+router.get('/login', (req, res) => res.render('user/login'))
 
 // Signup page...
-router.get('/signup', (req, res) => res.render('signup'))
+router.get('/signup', (req, res) => res.render('user/signup'))
 
 // Signup Handle...
 router.post('/signup', (req, res) => {
@@ -42,7 +42,7 @@ router.post('/signup', (req, res) => {
     }
 
     if(errors.length > 0) {
-        res.render('signup', {
+        res.render('user/signup', {
             errors,
             name,
             email,
@@ -56,7 +56,7 @@ router.post('/signup', (req, res) => {
                 if(user){
                 // User exists...
                     errors.push({ msg:'This email is already registered' })
-                    res.render('signup', {
+                    res.render('user/signup', {
                         errors,
                         name,
                         email,
@@ -78,7 +78,7 @@ router.post('/signup', (req, res) => {
                             newUser.save()
                                 .then(user => {
                                     req.flash('success_msg', 'Yor are now registered and can log in')
-                                    res.redirect('/users/login');
+                                    res.redirect('/users/user/login');
                                     // console.log(response)
                                 })
                                 .catch(err => console.log(err));
@@ -94,7 +94,7 @@ router.post('/signup', (req, res) => {
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/ask-question',
-        failureRedirect: '/users/login',
+        failureRedirect: '/users/user/login',
         failureMessage: true
     })(req, res, next);
 });
@@ -103,7 +103,7 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res) => {
     req.logout(() => {
         req.flash('success_msg', 'You are logged out');
-        res.redirect('/users/login')
+        res.redirect('/users/user/login')
     });
 
 })
