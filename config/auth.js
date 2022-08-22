@@ -9,7 +9,7 @@ module.exports = {
 
     ensureUserLoggedIn: (req, res, next) => {
         if(req.isAuthenticated()) {
-            // req.flash('error_msg', 'You are already logged in')
+            req.flash('error_msg', 'You are already logged in')
             res.redirect('/')
         }
         return next();
