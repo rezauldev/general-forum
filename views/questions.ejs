@@ -19,15 +19,13 @@
 
     <div class="pt-5">
         <h2 style="font-size: 1.3rem; font-weight: 400" data-answercount="1">1 Answer<span style="display: none;" itemprop="answerCount">1</span></h2>
-        <div class="border p-3 mb-2" style="background-color: #FFFFFF; border-radius: 5px">
-            <p style="margin:0;">Cordial greetings I have a problem because I have a project where in a table where I have numerical values that I want to make the total sum of that column but the problem is that in that column has two types of monetary values that are dollars and soles (local currency of my country) as shown in the image.</p>
-        </div>
-        <div class="border p-3 mb-2" style="background-color: #FFFFFF; border-radius: 5px">
-            <p style="margin:0;">Cordial greetings I have a problem because I have a project where in a table where I have numerical values that I want to make the total sum of that column but the problem is that in that column has two types of monetary values that are dollars and soles (local currency of my country) as shown in the image.</p>
-        </div>
-        <div class="border p-3 mb-2" style="background-color: #FFFFFF; border-radius: 5px">
-            <p style="margin:0;">Cordial greetings I have a problem because I have a project where in a table where I have numerical values that I want to make the total sum of that column but the problem is that in that column has two types of monetary values that are dollars and soles (local currency of my country) as shown in the image.</p>
-        </div>
+        <% for (const answer of questions.answer) { %>
+
+            <div class="border p-3 mb-2" style="background-color: #FFFFFF; border-radius: 5px">
+                <p style="margin:0;"><%= answer %></p>
+            </div>
+        <% } %>
+
 
         <form action="<%= questions._id%>/post-answer" method="POST">
             <div class="mt-4 mb-4">
