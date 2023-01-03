@@ -20,7 +20,8 @@ route.post('/ask-question', ensureAuthenticated, (req, res) => {
     const askQuestion = new Question({
         title,
         description,
-        tags
+        tags,
+        user: req.user.id
     })
     askQuestion.save()
         .then(item => {
@@ -28,10 +29,11 @@ route.post('/ask-question', ensureAuthenticated, (req, res) => {
         })
         .catch(err => console.log(err));
     console.log(req.body);
+    console.log(req.user.id)
 })
 
 // Dashboard page...
-route.get('/dashboard', (req, res) => res.render('dashboard'))
+route.get('/dashboard', (req, res) => res.render('./dashboard/dashboard'))
 
 // Ask question page...
 route.get('/ask-question', ensureAuthenticated, (req, res) =>  res.render('ask-question'))

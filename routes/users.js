@@ -8,10 +8,10 @@ const { ensureUserLoggedIn } = require('../config/auth')
 const User = require('../models/User')
 
 // Login page...
-router.get('/login', ensureUserLoggedIn,  (req, res) => res.render('login'))
+router.get('/login', ensureUserLoggedIn,  (req, res) => res.render('./navbar/login'))
 
 // Signup page...
-router.get('/signup', ensureUserLoggedIn,  (req, res) => res.render('signup'))
+router.get('/signup', ensureUserLoggedIn,  (req, res) => res.render('./navbar/signup'))
 
 // Signup Handle...
 router.post('/signup', (req, res) => {
@@ -42,7 +42,7 @@ router.post('/signup', (req, res) => {
     }
 
     if(errors.length > 0) {
-        res.render('signup', {
+        res.render('./navbar/signup', {
             errors,
             name,
             email,
@@ -93,7 +93,7 @@ router.post('/signup', (req, res) => {
 // Login handle...
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/ask-question',
+        successRedirect: '/',
         failureRedirect: 'login',
         failureMessage: true
     })(req, res, next);

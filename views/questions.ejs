@@ -13,7 +13,6 @@
         </div>
         <div class="mt-2">
             <a href="#" class="text-dark text-decoration-none p-2 icon"><i class="fa-regular fa-bookmark" style="margin-right:10px"></i>save</a>
-            <!--                    <i class="fa-solid fa-bookmark"></i>-->
         </div>
     </div>
 
@@ -29,11 +28,20 @@
 
         <form action="<%= questions._id%>/post-answer" method="POST">
             <div class="mt-4 mb-4">
-                <label class="pt-3" style="font-size: 1.3rem; font-weight: 400" for="bbp_topic_title">Your Answer:</label>
-                <textarea class="form-control" name="answer" rows="15"></textarea>
+                <% if(user) { %>
+                    <label class="pt-3" style="font-size: 1.3rem; font-weight: 400" for="bbp_topic_title">Your Answer:</label>
+                    <textarea class="form-control" id="answer-form" name="answer" rows="15"></textarea>
+                <% } else { %>
+                    <label class="pt-3" style="font-size: 1.3rem; font-weight: 400" for="bbp_topic_title">Your Answer: <span style="color: #FD841F; font-style: italic;">You need to login to post your answer</span></label>
+                    <textarea class="form-control" name="answer" rows="15" disabled></textarea>
+                <% } %>
             </div>
             <div>
-                <button type="submit" name="bbp_topic_submit" class="btn btn-primary btn-outline-light">Post Your Answer</button>
+                <% if(user) { %>
+                    <button type="submit" name="bbp_topic_submit" class="btn btn-primary btn-outline-light" id="post-answer">Post Your Answer</button>
+                <% } else { %>
+                    <button type="submit" name="bbp_topic_submit" class="btn btn-dark btn-outline-dark" disabled>Post Your Answer</button>
+                <% } %>
             </div>
         </form>
     </div>

@@ -68,3 +68,11 @@ res.redirect('/');
 .catch(err => console.log(err));
 console.log(req.body);
 })
+
+
+
+<div class="ml-2 rounded-circle bg-primary d-flex justify-content-center align-items-center" style="width:45px; height: 45px; margin-bottom: 20px;">
+                    <h4 class="#" style="color: #FFFFFF; "><%= user.name.charAt(0).toUpperCase() %></h4>
+                </div>
+
+<h4 class="#" ><%= user.date %></h4>

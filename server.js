@@ -33,7 +33,7 @@ const PORT = process.env.PORT || 8000;
 app.use(expressLayouts)
 app.set('view engine', 'ejs');
 
-// Bodyer...
+// Bodyparser...
 app.use(express.urlencoded({ extended: true }))
 
 // Express session...
@@ -62,7 +62,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error')
     res.locals.user = req.user
 
-    // console.log(res.locals.user)
+    console.log(res.locals.user)
     next()
 })
 
