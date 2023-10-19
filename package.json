@@ -13,7 +13,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "mongodb": "^4.7.0",
-    "mongoose": "^6.4.3",
+    "mongoose": "^6.12.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "passport-strategy": "^1.0.0"
